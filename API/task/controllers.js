@@ -5,7 +5,6 @@ exports.fetchTasks = (req, res) => {
 };
 
 exports.addTask = (req, res) => {
-  console.log(req.body);
   try {
     const id = tasks.length + 1;
     const newTask = {
