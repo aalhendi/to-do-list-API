@@ -17,3 +17,18 @@ exports.addTask = (req, res) => {
     console.error(error);
   }
 };
+
+exports.updateTask = (req, res) => {
+  console.log(req.body);
+  const { taskId } = req.params;
+  const foundTask = tasks.find((task) => task.id === +taskId);
+
+  if (foundTask) {
+    for (const key in req.body) {
+      foundTask[key] = req.body[key];
+    }
+    res.status(204).end();
+  } else {
+    res.status(404).json({ message: "Task not found." });
+  }
+};
