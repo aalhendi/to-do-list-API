@@ -1,5 +1,10 @@
 const express = require("express");
-const { fetchTasks, addTask, updateTask } = require("./controllers");
+const {
+  fetchTasks,
+  addTask,
+  updateTask,
+  deleteTask,
+} = require("./controllers");
 
 const router = express.Router();
 
@@ -11,5 +16,8 @@ router.post("/", addTask);
 
 //Update Task
 router.put("/:taskId", updateTask);
+
+//Delete Task
+router.delete("/:taskId", deleteTask);
 
 module.exports = router;
